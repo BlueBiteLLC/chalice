@@ -172,3 +172,16 @@ class RestAPI(ManagedModel):
 
     def dependencies(self):
         return [self.lambda_function] + self.authorizers
+
+
+@attrs
+class S3BucketNotification(ManagedModel):
+    resource_type = 's3_event'
+    bucket = attrib()
+    events = attrib()
+    prefix = attrib()
+    suffix = attrib()
+    lambda_function = attrib()
+
+    def dependencies(self):
+        return [self.lambda_function]
