@@ -307,3 +307,22 @@ class RestAPI(ManagedModel):
                  ):
         # type: (...) -> None
         ...
+
+
+class S3BucketNotification(ManagedModel):
+    bucket = ... # type: str
+    events = ... # type: List[str]
+    prefix = ... # type: str
+    suffix = ... # type: str
+    lambda_function = ... # type: LambdaFunction
+
+    def __init__(self,
+                 resource_name,    # type: str
+                 bucket,           # type: str
+                 events,           # type: List[str]
+                 prefix,           # type: str
+                 suffix,           # type: str
+                 lambda_function,  # type: LambdaFunction
+                 ):
+        # type: (...) -> None
+        ...
